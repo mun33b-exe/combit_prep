@@ -12,30 +12,82 @@ class Signup extends StatefulWidget {
 class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: ListView(
-          children: [
-            Center(child: Text('Signup Screen')),
-            TextField(decoration: InputDecoration(labelText: 'Email')),
-            TextField(decoration: InputDecoration(labelText: 'Name')),
-            TextField(
-              decoration: InputDecoration(labelText: 'Password'),
+    return Scaffold(
+      body: ListView(
+        children: [
+          SizedBox(height: 50),
+          Center(
+            child: Text(
+              'Signup Screen',
+              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: TextField(
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                labelText: 'Email',
+                hintText: 'Enter your email',
+                border: OutlineInputBorder(),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: TextField(
+              keyboardType: TextInputType.name,
+              decoration: InputDecoration(
+                labelText: 'Name',
+                hintText: 'Enter your full name',
+                border: OutlineInputBorder(),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: TextField(
+              keyboardType: TextInputType.visiblePassword,
+              decoration: InputDecoration(
+                labelText: 'Password',
+                hintText: 'Enter your password',
+                border: OutlineInputBorder(),
+              ),
               obscureText: true,
             ),
+          ),
+          SizedBox(height: 10),
 
-            InkWell(
-              child: Text('Already have an account? Login'),
-              onTap: () {
+          Center(
+            child: TextButton(
+              onPressed: () {
                 // Navigate to login screen
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => Login()),
                 );
               },
+              style: ButtonStyle(
+                overlayColor: MaterialStateProperty.all(Colors.transparent),
+              ),
+              child: Text('Already have an account? Login'),
             ),
-          ],
-        ),
+          ),
+          SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.all(32.0),
+            child: ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+              ),
+              onPressed: () {
+                // Handle signup logic
+              },
+              child: Text('Signup'),
+            ),
+          ),
+        ],
       ),
     );
   }
