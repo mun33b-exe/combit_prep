@@ -1,5 +1,6 @@
 import 'package:combit_prep/Signup.dart';
 import 'package:flutter/material.dart';
+
 class Login extends StatefulWidget {
   const Login({super.key});
 
@@ -23,10 +24,13 @@ class _LoginState extends State<Login> {
             TextButton(
               onPressed: () {
                 // Navigate to signup screen
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Signup()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Signup()),
+                );
               },
-              child: Text('Don't have an account? Sign up'),
-            ),),
+              child: Text('Already have an Account? Signup'),
+            ),
             ElevatedButton(
               onPressed: () {
                 // Handle login logic
